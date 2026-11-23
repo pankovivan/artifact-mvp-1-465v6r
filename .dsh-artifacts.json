@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "artifacts": {
+    "mvp-1-465v6r": {
+      "id": "mvp-1-465v6r",
+      "title": "Мобильный банк — демо MVP Этапа 1",
+      "kind": "html",
+      "createdAt": "2026-11-23T06:35:53.413Z",
+      "updatedAt": "2026-11-23T06:35:53.413Z",
+      "rev": 1,
+      "files": [
+        "assets/mob-bank-mvp-stage1.pptx",
+        "assets/mob-bank-sales.pptx",
+        "assets/screen-dark.png",
+        "assets/screen-history.png",
+        "assets/screen-main.png",
+        "assets/screen-payments.png",
+        "assets/screen-product.png",
+        "assets/screen-profile.png",
+        "assets/screen-qr.png",
+        "assets/screen-rates.png",
+        "assets/screen-settings.png",
+        "assets/screen-transfer.png",
+        "assets/ui-client.png",
+        "assets/ui-operations.png",
+        "index.html",
+        "styles.css"
+      ],
+      "description": "Лендинг мобильного банка (демо MVP Этапа 1): возможности, экраны, архитектура, демо-доступ"
+    }
+  },
+  "tombstones": []
+}

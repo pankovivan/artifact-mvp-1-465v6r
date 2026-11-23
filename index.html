@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'none'" data-dsh-artifacts>
+<meta name="robots" content="noindex, nofollow" data-dsh-artifacts>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мобильный банк на GreenData — демо MVP Этапа 1</title>
+<meta name="description" content="Демо мобильного банка как PWA на платформе GreenData: одна кодовая база, три платформы, ноль публикаций в сторах. Вход по телефону и PIN, карты и счета, история, переводы.">
+<meta name="theme-color" content="#1F3864">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231F3864'/%3E%3Crect x='6.5' y='11' width='19' height='12' rx='3' fill='none' stroke='%23fff' stroke-width='1.9'/%3E%3Cpath d='M6.5 15.4h19' stroke='%23fff' stroke-width='1.9' stroke-linecap='round'/%3E%3Ccircle cx='23.4' cy='9.4' r='3.1' fill='%23FFB020'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#features">Перейти к содержанию</a>
+
+<!-- ==================== ШАПКА ==================== -->
+<header class="topbar">
+  <div class="container topbar__inner">
+    <a class="brand" href="#top" aria-label="Мобильный банк — к началу страницы">
+      <svg class="brand__mark" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="9" fill="#1F3864"/>
+        <rect x="6.5" y="11" width="19" height="12" rx="3" fill="none" stroke="#FFFFFF" stroke-width="1.9"/>
+        <path d="M6.5 15.4h19" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="23.4" cy="9.4" r="3.1" fill="#FFB020"/>
+      </svg>
+      <span class="brand__text">
+        <b>Мобильный банк</b>
+        <span>демо MVP · GreenData</span>
+      </span>
+    </a>
+
+    <nav class="topbar__nav" aria-label="Разделы страницы">
+      <a href="#features">Что умеет</a>
+      <a href="#screens">Экраны</a>
+      <a href="#arch">Как устроено</a>
+      <a href="#demo">Демо</a>
+    </nav>
+
+    <a class="btn btn--sm" href="https://mob-bank-demo.netlify.app" target="_blank" rel="noopener">Открыть демо</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow">Демо · MVP Этапа 1</p>
+        <h1>Мобильный банк, который выходит за&nbsp;один релиз</h1>
+        <p class="lead">
+          Веб-приложение вместо трёх нативных. Логика — в&nbsp;ETL на&nbsp;GreenData, клиент — тонкая PWA
+          в&nbsp;браузере. Одна кодовая база, три платформы, ноль публикаций в&nbsp;сторах.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn" href="https://mob-bank-demo.netlify.app" target="_blank" rel="noopener">Открыть демо</a>
+          <a class="btn btn--ghost" href="#screens">Посмотреть экраны</a>
+        </div>
+
+        <ul class="ticks">
+          <li>Вход по телефону, коду и PIN — без установки приложения</li>
+          <li>Карты, история и переводы на живом стенде GreenData</li>
+          <li>Тёмная тема, системный шрифт, крупные элементы</li>
+        </ul>
+      </div>
+
+      <div class="hero__art">
+        <div class="phone phone--hero">
+          <img src="assets/screen-main.png" width="390" height="844"
+               alt="Главный экран мобильного банка: общая сумма 475 353,25 ₽, дебетовая и кредитная карты">
+        </div>
+        <div class="float float--a"><span class="float__dot"></span>PWA · без сторов</div>
+        <div class="float float--b"><b>136</b> автотестов</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ЦИФРЫ ==================== -->
+  <section class="nums-band" aria-label="Ключевые цифры">
+    <div class="container">
+      <dl class="nums">
+        <div class="num"><dt>1</dt><dd>кодовая база для веба, Android и iOS</dd></div>
+        <div class="num"><dt>3</dt><dd>платформы: браузер, Android, iOS</dd></div>
+        <div class="num"><dt>0</dt><dd>публикаций в App Store и Google Play</dd></div>
+        <div class="num"><dt>9</dt><dd>ETL-хуков — вся логика в GreenData</dd></div>
+        <div class="num"><dt>136</dt><dd>автотестов во Flutter-приложении</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ==================== ЧТО УМЕЕТ ==================== -->
+  <section class="section section--soft" id="features">
+    <div class="container">
+      <header class="head">
+        <p class="eyebrow">Что умеет</p>
+        <h2>Девять возможностей — и все уже в демо</h2>
+        <p class="lead head__lead">
+          Всё, что видит клиент, — ниже. Каждый пункт можно проверить в живом демо:
+          архитектура под него готова, экрана пока нет.
+        </p>
+        <ul class="legend">
+          <li><span class="dot dot--now"></span>работает в демо</li>
+          </ul>
+      </header>
+
+      <div class="features">
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="6" y="2.8" width="12" height="18.4" rx="3"/>
+              <path d="M10.2 18.4h3.6"/>
+              <path d="M12 9.6v4.2M9.9 11.7h4.2" opacity=".55"/>
+            </svg>
+          </span>
+          <h3>Вход по телефону и PIN</h3>
+          <p>Номер, код подтверждения, затем PIN. Сессия переживает перезагрузку страницы, выход — в один тап.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2.6" y="7.2" width="16" height="11" rx="2.6"/>
+              <path d="M6.6 7.2V5.9a1.9 1.9 0 0 1 1.9-1.9h9.2a2.6 2.6 0 0 1 2.6 2.6v8.1"/>
+              <path d="M2.6 11.6h16"/>
+            </svg>
+          </span>
+          <h3>Карты и счета</h3>
+          <p>Общая сумма по банку, карты с кредитным лимитом, счета. Продукты приходят одним запросом из платформы.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3.4 12a8.6 8.6 0 1 0 2.6-6.2"/>
+              <path d="M3.2 4.4v4.4h4.4"/>
+              <path d="M12 8.2V12l2.9 1.8"/>
+            </svg>
+          </span>
+          <h3>История операций</h3>
+          <p>По карте или по всем продуктам сразу: сумма со знаком, дата, контрагент. Прокрутка без перезагрузки.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 8.4h12.2M13 5.2l3.4 3.2-3.4 3.2"/>
+              <path d="M20 15.6H7.8M11 12.4l-3.4 3.2 3.4 3.2"/>
+            </svg>
+          </span>
+          <h3>Переводы</h3>
+          <p>С карты на счёт и обратно, перевод клиенту банка по номеру телефона. Валютные переводы — по курсу продажи банка.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.2 18.8V6.2M4.2 18.8h15.6"/>
+              <path d="M7.6 15.2l3.4-4.1 3 2.6 4.4-6"/>
+              <circle cx="18.4" cy="7.7" r="1.5"/>
+            </svg>
+          </span>
+          <h3>Курсы валют</h3>
+          <p>Курсы ЦБ РФ с наценкой банка, покупка и продажа, пересчёт по сумме. Перевод между счетами в разных валютах идёт по курсу продажи. плане.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2.6" y="6" width="18.8" height="12.6" rx="2.8"/>
+              <path d="M2.6 10.2h18.8"/>
+              <path d="M16.6 15.1h2.4M12 12.6v5.4" opacity=".55"/>
+            </svg>
+          </span>
+          <h3>Новый продукт</h3>
+          <p>Открыть карту или счёт прямо в приложении: тип, валюта, название. Продукт создаётся на платформе и сразу появляется в списке. и — в плане.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="6.4" height="6.4" rx="1.6"/>
+              <rect x="14.6" y="3" width="6.4" height="6.4" rx="1.6"/>
+              <rect x="3" y="14.6" width="6.4" height="6.4" rx="1.6"/>
+              <path d="M14.6 14.6h2.6v2.6h-2.6zM18.6 18.6h2.4v2.4h-2.4z" opacity=".55"/>
+            </svg>
+          </span>
+          <h3>Оплата по QR</h3>
+          <p>Сканер камеры в браузере: реквизиты, сумма и назначение — из QR. Если камеры нет, ссылку из кода можно вставить вручную.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8.4" r="3.9"/>
+              <path d="M4.6 20.4a7.4 7.4 0 0 1 14.8 0"/>
+            </svg>
+          </span>
+          <h3>Профиль</h3>
+          <p>Личные данные, код клиента, безопасность и сессия. Данные берутся из того же ответа продуктов, что и главный экран.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 14.1A8.6 8.6 0 0 1 9.9 3.8a8.6 8.6 0 1 0 10.3 10.3z"/>
+              <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <h3>Тёмная тема</h3>
+          <p>Светлая, тёмная или системная — включается в настройках и сохраняется между сессиями. Крупный шрифт — «скоро».</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ЭКРАНЫ ==================== -->
+  <section class="section" id="screens">
+    <div class="container">
+      <header class="head head--tight">
+        <p class="eyebrow">Экраны</p>
+        <h2>Пять экранов вместо презентации</h2>
+        <p class="lead head__lead">
+          Снято на рабочем стенде, без мокапов и дорисованных данных.
+        </p>
+      </header>
+
+      <div class="screens">
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-main.png" width="390" height="844"
+            alt="Главный экран: общая сумма по банку и две карты"></div>
+          <figcaption><b>Главный</b><span>Общая сумма, карты и счета на одном экране</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-history.png" width="390" height="844"
+            alt="История операций по кредитной карте: зачисление и списание"></div>
+          <figcaption><b>История</b><span>Операции по карте: дата, знак суммы, контрагент</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-transfer.png" width="390" height="844"
+            alt="Экран перевода между своими счетами: откуда, куда, сумма, кнопка «Перевести»"></div>
+          <figcaption><b>Перевод</b><span>Свои счета: откуда, куда, сумма и остаток</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-profile.png" width="390" height="844"
+            alt="Профиль клиента: имя, телефон, разделы «Личные данные», «Настройки», «Безопасность»"></div>
+          <figcaption><b>Профиль</b><span>Личные данные, настройки, безопасность</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-dark.png" width="390" height="844"
+            alt="Главный экран в тёмной теме: те же карты и суммы на тёмном фоне"></div>
+          <figcaption><b>Тёмная тема</b><span>Та же вёрстка и те же данные — в тёмной теме</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-rates.png" width="390" height="844"
+            alt="Курсы валют: диапазоны суммы, покупка и продажа ЦБ РФ с наценкой банка"></div>
+          <figcaption><b>Курсы валют</b><span>ЦБ РФ плюс наценка банка, пересчёт по сумме</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-qr.png" width="390" height="844"
+            alt="Оплата по QR: получатель, ИНН, назначение и сумма из кода"></div>
+          <figcaption><b>Оплата по QR</b><span>Реквизиты из кода и списание со счёта</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-product.png" width="390" height="844"
+            alt="Новый продукт: экран успеха с маской номера нового счёта"></div>
+          <figcaption><b>Новый продукт</b><span>Карта или счёт за пару тапов</span></figcaption>
+        </figure>
+      </div>
+
+      <p class="screens__note">
+        Разрешение экранов — 390 × 844. Тёмная тема — отдельный экран, а не фильтр поверх светлого.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== КАК УСТРОЕНО ==================== -->
+  <section class="section section--soft" id="arch">
+    <div class="container">
+      <header class="head">
+        <p class="eyebrow">Как устроено</p>
+        <h2>Клиент тонкий, логика — в платформе</h2>
+        <p class="lead head__lead">
+          Три слоя, каждый меняется отдельно. Поправили правило в GreenData — приложение подхватило
+          его на следующем запросе, без релиза.
+        </p>
+      </header>
+
+      <div class="arch">
+        <article class="arch__step">
+          <div class="arch__top"><span class="arch__idx">01</span><h3>Клиент</h3><span class="arch__tag">PWA</span></div>
+          <p class="arch__sub">Браузер клиента</p>
+          <ul class="bullets">
+            <li>Flutter web: статика в браузере, установка из меню браузера на домашний экран</li>
+            <li>Состояние сессии и тема — на устройстве, отдельного сервера для этого нет</li>
+            <li>Нет нативных сборок — нет очередей в App Store и Google Play</li>
+            <li>Android, iOS и десктопный браузер — один и тот же код</li>
+          </ul>
+        </article>
+
+        <article class="arch__step">
+          <div class="arch__top"><span class="arch__idx">02</span><h3>Cloudflare</h3><span class="arch__tag">фасад</span></div>
+          <p class="arch__sub">Доставка и API</p>
+          <ul class="bullets">
+            <li>Pages CDN отдаёт статику, воркер отвечает на API по тому же адресу</li>
+            <li>Один origin — CORS не нужен, заголовки настраивать не приходится</li>
+            <li>Токен хука лежит только в переменных Cloudflare и в браузер не попадает</li>
+            <li>Маршруты: вход, PIN, профиль, история, переводы, прокси к хукам</li>
+          </ul>
+        </article>
+
+        <article class="arch__step">
+          <div class="arch__top"><span class="arch__idx">03</span><h3>GreenData</h3><span class="arch__tag">логика</span></div>
+          <p class="arch__sub">Данные и правила</p>
+          <ul class="bullets">
+            <li>9 ETL-хуков: продукты, код, PIN, профиль, история, два вида переводов</li>
+            <li>Операции и клиенты — объекты платформы, а не таблицы приложения</li>
+            <li>Бизнес-правило меняется в ETL — приложение не пересобирается</li>
+            <li>Тот же реестр операций видит сотрудник банка</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="callout">
+        <b>Что это даёт.</b> Чтобы поменять лимит, текст ошибки или состав продуктов, не нужен ни релиз,
+        ни публикация в сторе: логика живёт в ETL, PWA остаётся тонким клиентом.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== ПЛАТФОРМА ВНУТРИ ==================== -->
+  <section class="section" id="platform">
+    <div class="container">
+      <div class="platform">
+        <div class="platform__text">
+          <p class="eyebrow">Платформа внутри</p>
+          <h2>Один источник данных для приложения и бэк-офиса</h2>
+          <p class="lead">
+            Реестр операций и карточка клиента — не отдельная админка, а объекты GreenData.
+            Приложение читает и пишет те же данные, что видит сотрудник банка.
+          </p>
+          <ul class="bullets bullets--tight">
+            <li><b>МБ. Операции</b> — дата, клиент, продукт, тип, сумма, статус</li>
+            <li><b>МБ. Клиент</b> — ФИО, телефон, код клиента, статус</li>
+            <li>Справочники, отчёты и многомерный анализ — рядом, без выгрузок в Excel</li>
+          </ul>
+          <p class="platform__note">
+            Ни одна операция не рождается «в приложении»: приложение только вызывает хук,
+            запись появляется в реестре платформы.
+          </p>
+        </div>
+
+        <div class="platform__art">
+          <figure class="shot">
+            <div class="shot__frame shot__frame--wide">
+              <img src="assets/ui-operations.png" width="1440" height="750"
+                   alt="Реестр «МБ. Операции» в GreenData: строки с датой, клиентом, продуктом, типом операции и суммой">
+            </div>
+            <figcaption><b>МБ. Операции — реестр</b><span>Каждая операция из приложения — строка в реестре</span></figcaption>
+          </figure>
+
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/ui-client.png" width="1440" height="322"
+                   alt="Карточка клиента «МБ. Клиент» в GreenData: наименование, ФИО, телефон, статус, код клиента">
+            </div>
+            <figcaption><b>МБ. Клиент — карточка</b><span>Клиент и его продукты в объектной модели</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== КОМУ ПОДХОДИТ ==================== -->
+  <section class="section section--soft" id="who">
+    <div class="container">
+      <header class="head">
+        <p class="eyebrow">Кому подходит</p>
+        <h2>Четыре ситуации, где такой MVP полезнее большого проекта</h2>
+      </header>
+
+      <div class="scenarios">
+        <article class="scenario">
+          <span class="scenario__num">01</span>
+          <h3>Банку без нативного приложения</h3>
+          <p>Проверить спрос на мобильный банк, не нанимая отдельную команду под iOS и Android.</p>
+          <p class="scenario__out">На выходе — работающий вход, карты и история на живых данных</p>
+        </article>
+
+        <article class="scenario">
+          <span class="scenario__num">02</span>
+          <h3>Быстрому пилоту</h3>
+          <p>Показать функцию через недели, а не через квартал: платформа закрывает бэкенд и реестры.</p>
+          <p class="scenario__out">На выходе — демо, которое можно дать в руки клиенту</p>
+        </article>
+
+        <article class="scenario">
+          <span class="scenario__num">03</span>
+          <h3>Демо для правления</h3>
+          <p>Живой продукт в телефоне вместо слайдов: вход, перевод, история, тёмная тема.</p>
+          <p class="scenario__out">На выходе — сценарий на пять минут без подготовки</p>
+        </article>
+
+        <article class="scenario">
+          <span class="scenario__num">04</span>
+          <h3>Замене трёх приложений</h3>
+          <p>Одна кодовая база и один релизный цикл вместо трёх команд, трёх сборок и трёх очередей в сторы.</p>
+          <p class="scenario__out">На выходе — обновление сразу на всех платформах</p>
+        </article>
+      </div>
+
+      <p class="honest">
+        <b>Честно об ограничениях.</b> Данные тестовые, вход по фиксированному коду, счётчика попыток
+        и блокировки нет, биометрия в Этап 1 не входила. Переводы меняют тестовые остатки
+        и не откатываются.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== ДЕМО-ДОСТУП ==================== -->
+  <section class="demo" id="demo">
+    <div class="container demo__inner">
+      <div class="demo__text">
+        <p class="eyebrow eyebrow--light">Демо-доступ</p>
+        <h2>Откройте демо и пройдите сценарий</h2>
+        <p class="lead lead--light">
+          Вход занимает меньше минуты: телефон, код, PIN. Дальше — перевод между своими картами
+          и история операций.
+        </p>
+
+        <dl class="creds">
+          <div><dt>Телефон</dt><dd>+7 900 123-4567</dd></div>
+          <div><dt>Код</dt><dd>1111</dd></div>
+          <div><dt>PIN</dt><dd>2580</dd></div>
+        </dl>
+
+        <div class="demo__actions">
+          <a class="btn btn--amber" href="https://mob-bank-demo.netlify.app" target="_blank" rel="noopener">
+            Открыть зеркало
+            <svg class="btn__ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+          </a>
+          <a class="btn btn--outline" href="https://mob-bank-demo.pages.dev" target="_blank" rel="noopener">Основной адрес</a>
+        </div>
+
+        <p class="demo__note">
+          Зеркало на Netlify работает по IPv4 там, где <span class="mono">pages.dev</span> не открывается —
+          у основного адреса IPv4-маршруты отвечают не у всех провайдеров.
+        </p>
+      </div>
+
+      <div class="demo__art" aria-hidden="true">
+        <div class="phone phone--back">
+          <img src="assets/screen-settings.png" width="390" height="844" alt="">
+        </div>
+        <div class="phone phone--front">
+          <img src="assets/screen-payments.png" width="390" height="844" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== ПОДВАЛ ==================== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a class="brand brand--footer" href="#top">
+        <svg class="brand__mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#FFB020"/>
+          <rect x="6.5" y="11" width="19" height="12" rx="3" fill="none" stroke="#1F3864" stroke-width="1.9"/>
+          <path d="M6.5 15.4h19" stroke="#1F3864" stroke-width="1.9" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><b>Мобильный банк</b><span>демо MVP · GreenData</span></span>
+      </a>
+      <p>
+        Демо Этапа 1 на платформе GreenData. Страница статическая: HTML и CSS без сборщика
+        и без внешних запросов — шрифты, стили и картинки лежат рядом.
+      </p>
+      <p class="footer__made">Сделано на <b>GreenData</b></p>
+    </div>
+
+    <nav class="footer__col" aria-label="Презентации">
+      <h2 class="footer__h">Презентации</h2>
+      <ul>
+        <li>
+          <a href="assets/mob-bank-mvp-stage1.pptx" download>Мобильный банк - MVP Этапа 1.pptx</a>
+          <span>техническая, 11 слайдов</span>
+        </li>
+        <li>
+          <a href="assets/mob-bank-sales.pptx" download>Мобильный банк - продающая презентация.pptx</a>
+          <span>продающая, 12 слайдов</span>
+        </li>
+      </ul>
+      <p class="footer__hint">Файлы лежат в корне проекта, рядом с папкой <span class="mono">landing</span>.</p>
+    </nav>
+
+    <nav class="footer__col" aria-label="Ссылки">
+      <h2 class="footer__h">Материалы</h2>
+      <ul>
+        <li><a href="https://ru.yougile.com/board/s1p3kl9x6g1l" target="_blank" rel="noopener">Доска проекта в YouGile</a></li>
+        <li><a href="https://mob-bank-demo.netlify.app" target="_blank" rel="noopener">Демо — зеркало Netlify</a></li>
+        <li><a href="https://mob-bank-demo.pages.dev" target="_blank" rel="noopener">Демо — Cloudflare Pages</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container footer__bottom">
+    <span>© 2026 Мобильный банк · демо</span>
+    <span>Данные тестовые. Страница не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>
