@@ -6,8 +6,8 @@
       "title": "Мобильный банк — демо MVP Этапа 1",
       "kind": "html",
       "createdAt": "2026-11-23T06:35:53.413Z",
-      "updatedAt": "2026-11-23T06:35:53.413Z",
-      "rev": 1,
+      "updatedAt": "2026-11-23T14:21:15.727Z",
+      "rev": 2,
       "files": [
         "assets/mob-bank-mvp-stage1.pptx",
         "assets/mob-bank-sales.pptx",
@@ -26,7 +26,7 @@
         "index.html",
         "styles.css"
       ],
-      "description": "Лендинг мобильного банка (демо MVP Этапа 1): возможности, экраны, архитектура, демо-доступ"
+      "description": "Лендинг с обновлёнными презентациями, цифрами и ссылками на стенд и дизайн"
     }
   },
   "tombstones": []
