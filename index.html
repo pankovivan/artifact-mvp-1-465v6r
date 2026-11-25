@@ -72,7 +72,7 @@
                alt="Главный экран мобильного банка: общая сумма 475 353,25 ₽, дебетовая и кредитная карты">
         </div>
         <div class="float float--a"><span class="float__dot"></span>PWA · без сторов</div>
-        <div class="float float--b"><b>240</b> автотестов</div>
+        <div class="float float--b"><b>327</b> автотестов</div>
       </div>
     </div>
   </section>
@@ -84,8 +84,8 @@
         <div class="num"><dt>1</dt><dd>кодовая база для веба, Android и iOS</dd></div>
         <div class="num"><dt>3</dt><dd>платформы: браузер, Android, iOS</dd></div>
         <div class="num"><dt>0</dt><dd>публикаций в App Store и Google Play</dd></div>
-        <div class="num"><dt>13</dt><dd>ETL-хуков — вся логика в GreenData</dd></div>
-        <div class="num"><dt>240</dt><dd>автотестов во Flutter-приложении</dd></div>
+        <div class="num"><dt>15</dt><dd>ETL-хуков — вся логика в GreenData</dd></div>
+        <div class="num"><dt>327</dt><dd>автотестов во Flutter-приложении</dd></div>
       </dl>
     </div>
   </section>
@@ -95,7 +95,7 @@
     <div class="container">
       <header class="head">
         <p class="eyebrow">Что умеет</p>
-        <h2>Девять возможностей — и все уже в демо</h2>
+        <h2>Десять возможностей — и все уже в демо</h2>
         <p class="lead head__lead">
           Всё, что видит клиент, — ниже. Каждый пункт можно проверить в живом демо:
           архитектура под него готова, экрана пока нет.
@@ -166,7 +166,7 @@
             </svg>
           </span>
           <h3>Курсы валют</h3>
-          <p>Курсы ЦБ РФ с наценкой банка, покупка и продажа, пересчёт по сумме. Перевод между счетами в разных валютах идёт по курсу продажи. плане.</p>
+          <p>Курсы ЦБ РФ с наценкой банка, покупка и продажа, пересчёт по сумме. Перевод между счетами в разных валютах идёт по курсу продажи.</p>
           <span class="badge badge--now">в демо</span>
         </article>
 
@@ -179,7 +179,7 @@
             </svg>
           </span>
           <h3>Новый продукт</h3>
-          <p>Открыть карту или счёт прямо в приложении: тип, валюта, название. Продукт создаётся на платформе и сразу появляется в списке. и — в плане.</p>
+          <p>Открыть карту или счёт прямо в приложении: тип, валюта, название. Продукт создаётся на платформе и сразу появляется в списке.</p>
           <span class="badge badge--now">в демо</span>
         </article>
 
@@ -194,6 +194,19 @@
           </span>
           <h3>Оплата по QR</h3>
           <p>Сканер камеры в браузере: реквизиты, сумма и назначение — из QR. Если камеры нет, ссылку из кода можно вставить вручную.</p>
+          <span class="badge badge--now">в демо</span>
+        </article>
+
+        <article class="card">
+          <span class="card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2.6" y="5.4" width="12.4" height="8.6" rx="2"/>
+              <rect x="9" y="10" width="12.4" height="8.6" rx="2"/>
+              <path d="M11.6 12.4h7.2" opacity=".55"/>
+            </svg>
+          </span>
+          <h3>Кредит за четыре экрана</h3>
+          <p>Предодобрение, сумма и срок, ПСК до подписания и два согласия. Три поля ввода: сумма, срок, доход — остальное банк уже знает.</p>
           <span class="badge badge--now">в демо</span>
         </article>
 
@@ -283,6 +296,24 @@
             alt="Новый продукт: экран успеха с маской номера нового счёта"></div>
           <figcaption><b>Новый продукт</b><span>Карта или счёт за пару тапов</span></figcaption>
         </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-catalog.png" width="390" height="844"
+            alt="Каталог продуктов: доступно сразу, предодобренные кредиты и кредиты"></div>
+          <figcaption><b>Каталог</b><span>Предодобрения и новые продукты</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-credit-offer.png" width="390" height="844"
+            alt="Кредит: слайдер суммы, срок, платёж, переплата и ПСК"></div>
+          <figcaption><b>Кредит: сумма и срок</b><span>Платёж и ПСК до подписания</span></figcaption>
+        </figure>
+
+        <figure class="screen">
+          <div class="phone"><img src="assets/screen-credit-success.png" width="390" height="844"
+            alt="Кредит одобрен: сумма зачислена на счёт, первый платёж и ПСК"></div>
+          <figcaption><b>Кредит одобрен</b><span>Деньги на счёте за четыре экрана</span></figcaption>
+        </figure>
       </div>
 
       <p class="screens__note">
@@ -330,7 +361,7 @@
           <div class="arch__top"><span class="arch__idx">03</span><h3>GreenData</h3><span class="arch__tag">логика</span></div>
           <p class="arch__sub">Данные и правила</p>
           <ul class="bullets">
-            <li>13 ETL-хуков: продукты, код, PIN, профиль, история, переводы, курсы, открытие продуктов, QR</li>
+            <li>15 ETL-хуков: продукты, код, PIN, профиль, история, переводы, курсы, QR, предодобрения и заявки на кредит</li>
             <li>Операции и клиенты — объекты платформы, а не таблицы приложения</li>
             <li>Бизнес-правило меняется в ETL — приложение не пересобирается</li>
             <li>Тот же реестр операций видит сотрудник банка</li>

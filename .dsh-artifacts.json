@@ -6,11 +6,14 @@
       "title": "Мобильный банк — демо MVP Этапа 1",
       "kind": "html",
       "createdAt": "2026-11-23T06:35:53.413Z",
-      "updatedAt": "2026-11-23T14:21:15.727Z",
-      "rev": 2,
+      "updatedAt": "2026-11-25T18:12:45.494Z",
+      "rev": 3,
       "files": [
         "assets/mob-bank-mvp-stage1.pptx",
         "assets/mob-bank-sales.pptx",
+        "assets/screen-catalog.png",
+        "assets/screen-credit-offer.png",
+        "assets/screen-credit-success.png",
         "assets/screen-dark.png",
         "assets/screen-history.png",
         "assets/screen-main.png",
@@ -26,7 +29,7 @@
         "index.html",
         "styles.css"
       ],
-      "description": "Лендинг с обновлёнными презентациями, цифрами и ссылками на стенд и дизайн"
+      "description": "Лендинг: каталог продуктов и кредит за четыре экрана, обновлённые презентации"
     }
   },
   "tombstones": []
